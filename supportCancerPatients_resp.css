@@ -67,6 +67,11 @@
 
 
    @media(max-width:1080px) {
+      
+      .home-page{
+         padding-left:141px;
+         padding-top:400px;
+      }
        .nav-links {
            flex-direction: column;
            position: absolute;
@@ -356,4 +361,5 @@
        .fund_utilization_container {
            flex-direction: column;
        }
+
    }
