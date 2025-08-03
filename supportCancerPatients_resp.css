@@ -1,7 +1,95 @@
    @media(max-width:600px) {
 
+
+       .nav-links {
+           flex-direction: column;
+           position: absolute;
+           top: 70px;
+           right: 15px;
+           font-size: 20px;
+           width: 130px;
+           border-radius: 5px;
+           background-color: #888282;
+           color: black;
+           margin-top: 0px;
+           border: none;
+           display: none;
+           z-index: 9999;
+       }
+
+
+
+       .menu-toggle {
+           display: block;
+           margin-right: 15px;
+           cursor: pointer;
+
+       }
+
+       .donate-part .nav-register {
+           font-size: 15px;
+           padding: 3px 8px;
+
+       }
+
+       .donate-part button {
+           /* margin-right: 15px; */
+           padding: 3px 5px;
+           font-size: 15px;
+
+       }
+
+       .navbar .nav-links {
+           gap: 0px;
+           padding: 8px 8px 8px 20px;
+           display: none;
+       }
+
+       .nav-links .item {
+           padding: 5px;
+       }
+
+       .visible {
+           display: block;
+       }
+
+       .navbar {
+           display: flex;
+           align-items: center;
+           justify-content: space-around;
+           width: 100%;
+           position: fixed;
+           gap: 0px;
+           flex-wrap: wrap;
+
+
+       }
+
+       .navbar ul li a {
+           font-size: 15px;
+           margin: 0px;
+           width: 100%;
+
+           padding: 0px 0px;
+           box-sizing: border-box;
+           border: 0px solid transparent;
+       }
+
+       .navbar ul li a:hover {
+           border: none;
+           color: #ded1d1;
+       }
+
+       .logo {
+           height: 50px;
+           width: 50px;
+           margin-left: 17px;
+           margin-right: 10px;
+       }
+
+
        .home-page #element {
-           font-size: 40px;
+           font-size: 39px;
 
        }
 
@@ -22,9 +110,9 @@
            font-size: 15px;
        }
 
-        .home-page .btn_read a button {
+       .home-page .btn_read a button {
            padding: 7px 21px;
-           font-size:15px;
+           font-size: 15px;
        }
 
        .home-page p {
@@ -59,19 +147,62 @@
            font-size: 16px;
        }
 
+       .fund_utilization_container {
+           flex-direction: column;
+       }
+
+       .last-footer {
+           gap: 10px;
+           padding: 10px;
+           flex-direction: column;
+           flex-wrap: wrap;
+           text-align: center;
+       }
+
+       #motivational_bg button {
+           padding: 8px 10px 8px 10px;
+           font-size: 15px;
+           margin: 146px 0px 0px 63px;
+           background-size: 300% 300%;
+
+       }
 
 
+       #cancer_bg #motivational_bg {
+           height: 215px;
+           width: 100%;
 
+       }
+
+       #cancer_bg .heading_cancer_bg h1 {
+           text-align: center;
+
+
+       }
+       .card2 .container1 .success-pics {
+           margin-top: 160px;
+           width: 300px;
+           height: 250px;
+
+       }
+
+       #fund-utilization img {
+           margin-top: 20px;
+
+       }
 
    }
 
+   @media(min-width:601px) and (max-width:1140px) {
 
-   @media(max-width:1080px) {
-      
-      .home-page{
-         padding-left:141px;
-         padding-top:400px;
-      }
+       .last-footer {
+           gap: 10px;
+           padding: 10px;
+           flex-direction: column;
+           flex-wrap: wrap;
+           text-align: center;
+       }
+
        .nav-links {
            flex-direction: column;
            position: absolute;
@@ -145,19 +276,28 @@
            margin-right: 10px;
        }
 
+       #home {
+           height: 650px;
+       }
+
+       #cancer_bg .heading_cancer_bg h1 {
+           text-align: center;
+
+       }
+
    }
 
 
 
 
-   @media(max-width:1200px) {
+   @media(min-width:1080px) and (max-width:1200px) {
        .donate-part {
            display: flex;
            justify-content: center;
            align-items: center;
            margin-right: 0px;
            gap: 10px;
-           
+
        }
 
 
@@ -168,31 +308,32 @@
        }
 
        .donate-part button {
+           margin-right: 15px;
            padding: 3px 5px;
            font-size: 15px;
-          
+
        }
 
        #motivational_bg button {
            padding: 8px 22px 8px 22px;
            font-size: 15px;
-           margin: 179px 0px 0px 22px;
+           margin: 370px 0px 0px 55px;
            background-size: 300% 300%;
 
        }
 
 
        #cancer_bg #motivational_bg {
-           height: 250px;
+           height: 473px;
            width: 100%;
 
        }
 
-      
+
        .last-footer {
            gap: 0px;
-           font-size: 14px;
-           padding: 10px;
+           /* font-size: 14px; */
+           padding: 15px;
            flex-direction: column;
            flex-wrap: wrap;
            text-align: center;
@@ -221,8 +362,6 @@
        .card2 h1 {
            font-size: 28px;
        }
-
-
 
        .program_heading hr {
            height: 4px;
@@ -274,9 +413,6 @@
 
        }
 
-
-
-
        .card2 .container1 .success-pics {
            margin-top: 128px;
        }
@@ -304,29 +440,50 @@
 
        }
 
-
-    
        animatedLetterGradient animation {
            background-position-x: 39.2705%;
            background-position-y: 80.3648%;
        }
 
+       #home {
+           height: 650px;
+       }
 
+       #cancer_bg .heading_cancer_bg h1 {
+           text-align: center;
+       }
    }
 
 
-   @media (max-width:786px) {
+   @media (min-width:600px) and (max-width:786px) {
 
        p {
 
            font-size: 16px;
        }
 
+       #motivational_bg button {
+           padding: 8px 22px 8px 22px;
+           font-size: 15px;
+           margin: 310px 0px 0px 55px;
+           background-size: 300% 300%;
+
+       }
+
+
+       #cancer_bg #motivational_bg {
+           height: 400px;
+           width: 100%;
+
+       }
+
+
 
    }
 
-   @media (max-width:1150px) {
+   @media (min-width:951px) and (max-width:1150px) {
        #fund-utilization img {
+
            height: 300px;
            width: 300px;
        }
@@ -338,11 +495,28 @@
            flex-direction: column;
        }
 
+       #motivational_bg button {
+           padding: 8px 22px 8px 22px;
+           font-size: 15px;
+           margin: 370px 0px 0px 55px;
+           background-size: 300% 300%;
+
+       }
+
+
+       #cancer_bg #motivational_bg {
+           height: 473px;
+           width: 100%;
+
+       }
+
+
 
    }
 
-   @media (max-width:950px) {
+   @media (min-width:601px) and (max-width:950px) {
        #fund-utilization img {
+           margin-top: 20px;
            height: 400px;
            width: 395px;
        }
@@ -354,12 +528,47 @@
            flex-direction: column;
        }
 
+       #motivational_bg button {
+           padding: 8px 22px 8px 22px;
+           font-size: 15px;
+           margin: 300px 0px 0px 55px;
+           background-size: 300% 300%;
+
+       }
+
+
+       #cancer_bg #motivational_bg {
+           height: 400px;
+           width: 100%;
+
+       }
+
+
 
    }
 
-   @media(max-width:890px) {
+   @media(min-width:601px) and (max-width:890px) {
        .fund_utilization_container {
            flex-direction: column;
+       }
+
+       #home {
+           height: 650px;
+       }
+
+       #motivational_bg button {
+           padding: 8px 22px 8px 22px;
+           font-size: 15px;
+           margin: 300px 0px 0px 55px;
+           background-size: 300% 300%;
+
+       }
+
+
+       #cancer_bg #motivational_bg {
+           height: 400px;
+           width: 100%;
+
        }
 
    }
