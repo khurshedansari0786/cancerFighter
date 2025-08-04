@@ -16,6 +16,9 @@ body {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  font-size: 16px;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
 
 }
 
@@ -992,4 +995,5 @@ html {
 .last-footer ul i {
   font-size: 20px;
   color: white;
+
 }
