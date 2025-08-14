@@ -1,3 +1,5 @@
+
+
 const images = [
   'cancer_pics6.webp',
   'patient_bg1.webp',
@@ -34,7 +36,8 @@ let isDark = false;
 light_modeBtn.addEventListener('click', () => {
   if (!isDark) {
     // Apply Dark Mode
-    document.body.style.backgroundColor = "#102E50";  // Dark grey
+    document.body.style.backgroundColor = "#0b2440ff";  // Dark grey
+    // document.body.style.backgroundColor = "#181C14";  // Dark grey
     document.body.style.color = "#ffffff";            // White text
     light_modeBtn.style.backgroundColor = "#0000FF";     // Darker button bg
     light_modeBtn.style.color = "#fff";
@@ -60,6 +63,7 @@ function showModal() {
 function closeModal() {
   document.getElementById('contactModal').classList.add('hidden');
 }
+
 
 // Form validation
 function validateForm() {
@@ -117,9 +121,59 @@ function validateUniqueRegisterForm() {
 
 
 
+// async function redirectToPayment(event) {
+//   event.preventDefault();
+
+
+//   const name = document.getElementById("donorName").value.trim();
+//   const amount = document.getElementById("donationAmount").value.trim();
+//   const message = document.getElementById("donationMessage").value.trim();
+
+//   if (!name || !amount) {
+//     alert("Please enter name and amount.");
+//     return false;
+//   }
+
+//   // 🔄 Store donation via fetch
+//   try {
+//     const res = await fetch("/api/donation", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({
+//         donorName: name,
+//         donationAmount: amount,
+//         donationMessage: message
+//       })
+//     });
+
+//     if (!res.ok) {
+//       alert("❌ Failed to store donation.");
+//       return false;
+//     }
+//     console.log("✅ Donation stored");
+//     // alert("✅ Donation stored successfully. Redirecting to payment...");
+
+
+//     // 🔁 UPI Payment Redirect
+//     const upiID = "khurshedansari12403@okhdfcbank"; // ✅ Replace with your UPI ID
+//     const upiLink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+//     window.location.href = upiLink;
+
+//     return false;
+
+//   } catch (error) {
+//     console.error("Error:", error);
+//     alert("Something went wrong!");
+//     return false;
+//   }
+// }
+
+
+
 async function redirectToPayment(event) {
   event.preventDefault();
-
 
   const name = document.getElementById("donorName").value.trim();
   const amount = document.getElementById("donationAmount").value.trim();
@@ -130,13 +184,10 @@ async function redirectToPayment(event) {
     return false;
   }
 
-  // 🔄 Store donation via fetch
   try {
     const res = await fetch("/api/donation", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         donorName: name,
         donationAmount: amount,
@@ -148,14 +199,11 @@ async function redirectToPayment(event) {
       alert("❌ Failed to store donation.");
       return false;
     }
-    console.log("✅ Donation stored");
+
+    const result = await res.json();
+
     alert("✅ Donation stored successfully. Redirecting to payment...");
-
-
-    // 🔁 UPI Payment Redirect
-    const upiID = "your-upi-id@oksbi"; // ✅ Replace with your UPI ID
-    const upiLink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
-    window.location.href = upiLink;
+    window.location.href = result.paymentLink; // 🚀 direct UPI redirect
 
     return false;
 
@@ -165,6 +213,7 @@ async function redirectToPayment(event) {
     return false;
   }
 }
+
 
 // ✅ Toggle QR visibility
 function toggleQR(event) {
@@ -198,3 +247,55 @@ burger.addEventListener('click', function () {
     navMenu.style.display = 'none';
   }
 });
+
+
+
+// Register Form Submission
+  document.getElementById("uniqueRegisterForm").addEventListener("submit", async function (e) {
+    e.preventDefault(); // prevent default form submission
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      alert(result.message || "Registered successfully!");
+    } catch (err) {
+      console.error("Register Error:", err);
+      alert("Registration failed.");
+    }
+  });
+
+
+  // Contact Form Submission
+  document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      alert(result.message || "Message sent successfully!");
+    } catch (err) {
+      console.error("Contact Error:", err);
+      alert("Message sending failed.");
+    }
+  });
+
+
+
